@@ -29,8 +29,9 @@ def n_sum(n):
         n1 = n + n_sum(n-1)
     else:
         n2 = n + n_sum(n-1)
+    print ("suma numere pare este", n1, "suma numere impare este:", n2)
         
-print(n_sum(7))
+n_sum(7)
 
 
 # EX 3
