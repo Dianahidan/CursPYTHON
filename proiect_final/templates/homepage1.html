@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>STOP WASTE</title>
+{% endblock %}
+
+{% block content %}
+    <h1>
+        <img src="{% static 'images/no-food-waste.jpg' %}" width="120" />
+        {{ title }}
+    </h1>
+    <p>
+Food loss and waste is food that is not eaten. The causes of food waste or loss are numerous and occur throughout the food system, during production, processing, distribution, retail and food service sales, and consumption. Overall, about one-third of the world's food is thrown away.[3] A 2021 metaanalysis that did not include food lost during production, by the United Nations Environment Programme found that food waste was a challenge in all countries at all levels of economic development.[4] The analysis estimated that global food waste was 931 million tonnes of food waste (about 121 kg per capita) across three sectors: 61 per cent from households, 26 per cent from food service and 13 per cent from retail.[4]
+Food loss and waste is a major part of the impact of agriculture on climate change (it amounts to 3.3 billion tons of CO2 emissions annually[5][6]) and other environmental issues. Moreover, food waste that is not handled or reclaimed properly, i.e. through composting, can have many negative environmental consequences. For example, landfill gas from anaerobic digestion of organic matter is a major source of the greenhouse gas methane, and unreclaimed phosphorus in food waste, leads to further phosphate mining. Moreover, reducing food waste in all parts of the food system is an important part of reducing the environmental impact of agriculture, by reducing the total amount of water, land, and other resources used.</p>
+<a class="btn btn-info" href="https://en.wikipedia.org/wiki/Food_loss_and_waste" target="_blank">View more...</a>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block title %}
+<title>Register user</title>
+{% endblock %} {% block content %}
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge">
+    <form action="{% url 'users:register' %}" method="post">
+       {% csrf_token %} {{ form | crispy }}
+       <input type="submit" value="Register" />
+    </form>
+</div>
+{% endblock %}

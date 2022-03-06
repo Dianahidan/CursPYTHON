@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge">
+    <a class="w3-button w3-xxlarge w3-green" href="{% url 'products:adauga' %}">Adauga produs</a>
+    <table class="lista w3-table w3-xlarge w3-bordered w3-display-center ">
+        <thead>
+            <tr>
+                <th>Nr CRT</th>
+                <th>Tip Produs</th>
+                <th>Cantitate</th>
+                <th>Unitate de masura</th>
+                <th>Necesar</th>
+                <th>Data expirarii</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in products_list %}
+            <tr class="{% if item.expired %}expired{% endif %}">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item.tip_produs }}</td>
+                <td>{{ item.cantitate }}</td>
+                <td>{{ item.um }}</td>
+                <td><button id="necesar_{{item.id}}" onclick="modificaNecesar({{ item.id }},{{ item.necesar }})">{{item.necesar}}</button></td>
+                <td>{{ item.expiration_date| date:'d-m-Y' }}</td>
+                <td><a class="w3-button w3-xxlarge w3-black" href="{% url 'products:modifica' item.id %}">Modifica</a>
+                    <a class="w3-button w3-xxlarge w3-white" href="{% url 'products:dezactiveaza' item.id %}">Sterge</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     {% if is_paginated %}
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li><a class="btn" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled btn"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                    <li class="active btn btn"><span>{{ i }} <span class="sr-only">(curent)</span></span></li>
+                {% else %}
+                    <li><a class="btn" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li><a class="btn" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled btn"><span>&raquo;</span></li>
+            {% endif %}
+            <span class="align-right">Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }}</span>
+        </ul>
+    {% endif %}
+{% endblock %}

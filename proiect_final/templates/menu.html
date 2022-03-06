@@ -1,0 +1,18 @@
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black" id="myNavbar">
+    <a href="/" class="w3-bar-item w3-button">HOMEPAGE</a>
+    {% if request.user.is_authenticated %}
+      {% if request.user.is_superuser %}
+        <a class="w3-button" href="/admin"><b>ADMIN</b></a>
+      {% endif %}
+      <a href="/products" class="w3-bar-item w3-button">CAMARA MEA</a>
+      <a href="/shopping_list" class="w3-bar-item w3-button">LISTA DE CUMPARATURI</a>
+      <a href="/retete" class="w3-bar-item w3-button">RETETE</a>
+      <a class="w3-bar-item w3-button w3-yellow" href="{% url 'users:profile' %}"><b>Profile of {{ request.user.first_name }} {{ request.user.last_name }}</b></a>
+      <a class="w3-bar-item w3-button" href="{% url 'users:logout' %}">Logout</a>
+    {% else %}
+      <a class="w3-bar-item w3-button" href="{% url 'users:login' %}">Login</a>
+      <a class="w3-bar-item w3-button" href="{% url 'users:register' %}">Register</a>
+    {% endif %}
+  </div>
+</div>

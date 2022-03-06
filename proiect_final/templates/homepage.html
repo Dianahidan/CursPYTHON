@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<header class="bgimg w3-display-container w3-grayscale-min">
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-black w3-hide-small" style="font-size:100px"><br><b>STOP waste, eat SMART!</b></span>
+          <p><b><font size="+1,5">
+            Food loss and waste is food that is not eaten. The causes of food waste or loss are numerous and occur throughout the food system, during production, processing, distribution, retail and food service sales, and consumption. Overall, about one-third of the world's food is thrown away. A 2021 metaanalysis estimated that global food waste was 931 million tonnes of food waste.
+            Food loss and waste is a major part of the impact of agriculture on climate change and other environmental issues. Moreover, food waste that is not handled or reclaimed properly, i.e. through composting, can have many negative environmental consequences.</font></b></p>
+    <a class="btn btn-info" href="https://en.wikipedia.org/wiki/Food_loss_and_waste" target="_blank">Find out more about food waste</a>
+    {% if request.user.is_authenticated %}
+      <p><a href="/products" class="w3-button w3-xxlarge w3-black">DESCHIDE CAMARA</a></p>
+      <a class="btn btn-light" href="/shopping_list" style="font-size:20px"><b>Lista de cumparaturi</b></a>
+    {% endif %}
+  </div>
+</header>
+{% endblock %}

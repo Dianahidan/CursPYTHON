@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags
+{% block content %}
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge">
+    <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label>Username</label>
+            <input type="text" name="username" />
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" />
+        </div>
+        <input type="submit" value="Login" />
+    </form>
+{% endblock %}
